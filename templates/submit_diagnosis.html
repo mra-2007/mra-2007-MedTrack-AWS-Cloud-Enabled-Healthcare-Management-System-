@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <h2>Submit Diagnosis</h2>
+
+    <form method="POST">
+        
+        <input type="hidden" name="appointment_id" value="{{ appointment_id }}">
+
+        <label>Diagnosis</label>
+        <textarea name="diagnosis" placeholder="Enter diagnosis here..." required></textarea>
+
+        <br><br>
+
+        <button type="submit" class="btn">Submit Diagnosis</button>
+
+    </form>
+</div>
+
+{% endblock %}

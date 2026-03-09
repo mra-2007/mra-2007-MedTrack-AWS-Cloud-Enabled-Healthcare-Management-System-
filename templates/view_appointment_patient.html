@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>🧑‍⚕️ My Appointments</h2>
+
+{% if appointments and appointments|length > 0 %}
+
+<div class="card">
+    <table>
+        <thead>
+            <tr>
+                <th>Appointment ID</th>
+                <th>Doctor Email</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th>Diagnosis</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+            <tr>
+                <td>{{ appointment.appointment_id }}</td>
+                <td>{{ appointment.doctor_email }}</td>
+                <td>{{ appointment.date }}</td>
+                <td>{{ appointment.time }}</td>
+                <td>{{ appointment.status }}</td>
+                <td>
+                    {% if appointment.diagnosis %}
+                        {{ appointment.diagnosis }}
+                    {% else %}
+                        Not Yet Updated
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% else %}
+
+<div class="card">
+    <p>You have no appointments booked.</p>
+</div>
+
+{% endif %}
+
+<div style="margin-top:20px;">
+    <a href="/patient_dashboard" class="btn">Back to Dashboard</a>
+</div>
+
+{% endblock %}

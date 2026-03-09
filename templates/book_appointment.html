@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <h2>📅 Book Appointment</h2>
+
+    <form method="POST">
+
+        <!-- Doctor Email -->
+        <label>Doctor Email</label>
+        <input type="email" name="doctor_email" placeholder="Enter Doctor Email" required>
+
+        <!-- Appointment Date -->
+        <label>Appointment Date</label>
+        <input type="date" name="date" required>
+
+        <!-- Appointment Time -->
+        <label>Appointment Time</label>
+        <input type="time" name="time" required>
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn">Book Appointment</button>
+
+    </form>
+</div>
+
+{% endblock %}

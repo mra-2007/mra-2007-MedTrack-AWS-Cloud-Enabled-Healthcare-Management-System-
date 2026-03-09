@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>📋 View Appointments</h2>
+
+{% if appointments and appointments|length > 0 %}
+
+<div class="card">
+    <table>
+        <thead>
+            <tr>
+                <th>Appointment ID</th>
+                <th>Patient Email</th>
+                <th>Doctor Email</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th>Diagnosis</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+            <tr>
+                <td>{{ appointment.appointment_id }}</td>
+                <td>{{ appointment.patient_email }}</td>
+                <td>{{ appointment.doctor_email }}</td>
+                <td>{{ appointment.date }}</td>
+                <td>{{ appointment.time }}</td>
+                <td>{{ appointment.status }}</td>
+                <td>
+                    {% if appointment.diagnosis %}
+                        {{ appointment.diagnosis }}
+                    {% else %}
+                        Not Updated
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% else %}
+
+<div class="card">
+    <p>No appointments available.</p>
+</div>
+
+{% endif %}
+
+<div style="margin-top:20px;">
+    {% if session.get('role') == 'doctor' %}
+        <a href="/doctor_dashboard" class="btn">Back to Dashboard</a>
+    {% else %}
+        <a href="/patient_dashboard" class="btn">Back to Dashboard</a>
+    {% endif %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>👨‍⚕️ Doctor Dashboard</h2>
+
+<div class="dashboard-grid">
+
+    <!-- View Appointments -->
+    <div class="dashboard-box">
+        <h3>📅 View Appointments</h3>
+        <p>Check all scheduled patient appointments.</p>
+        <a href="/view_appointments" class="btn">View</a>
+    </div>
+
+    <!-- Submit Diagnosis -->
+    <div class="dashboard-box">
+        <h3>📝 Submit Diagnosis</h3>
+        <p>Update diagnosis for completed appointments.</p>
+        <a href="/submit_diagnosis" class="btn">Submit</a>
+    </div>
+
+    <!-- Search Appointment -->
+    <div class="dashboard-box">
+        <h3>🔍 Search Appointment</h3>
+        <p>Search appointments by date.</p>
+        <form action="/search" method="POST">
+            <input type="date" name="date" required>
+            <button type="submit" class="btn">Search</button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

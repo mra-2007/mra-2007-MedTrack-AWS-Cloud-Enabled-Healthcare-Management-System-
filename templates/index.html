@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card" style="text-align: center;">
+    <h2>Welcome to MedTrack 🩺</h2>
+    <p style="margin-top: 10px;">
+        A Cloud-Enabled Healthcare Management System
+    </p>
+
+    <div style="margin-top: 20px;">
+        {% if not session.get('user') %}
+            <a href="/login" class="btn">Login</a>
+            <a href="/register" class="btn" style="margin-left:10px;">Register</a>
+        {% else %}
+            {% if session.get('role') == 'doctor' %}
+                <a href="/doctor_dashboard" class="btn">Go to Dashboard</a>
+            {% else %}
+                <a href="/patient_dashboard" class="btn">Go to Dashboard</a>
+            {% endif %}
+        {% endif %}
+    </div>
+</div>
+
+<br>
+
+<div class="dashboard-grid">
+
+    <div class="dashboard-box">
+        <h3>📅 Easy Appointment Booking</h3>
+        <p>Patients can schedule appointments with doctors quickly and easily.</p>
+    </div>
+
+    <div class="dashboard-box">
+        <h3>📝 Online Diagnosis Submission</h3>
+        <p>Doctors can update patient diagnosis securely in real-time.</p>
+    </div>
+
+    <div class="dashboard-box">
+        <h3>☁ Cloud Powered</h3>
+        <p>Hosted on AWS EC2 with DynamoDB and SNS for high availability.</p>
+    </div>
+
+</div>
+
+{% endblock %}

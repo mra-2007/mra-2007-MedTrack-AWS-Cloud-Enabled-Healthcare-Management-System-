@@ -19,7 +19,7 @@ logging.basicConfig(
 # AWS Configuration
 # ----------------------------
 REGION = "us-east-1"  # Change if needed N. Virginia 
-SNS_TOPIC_ARN = "arn:aws:sns:us-east-1:339713112656:Medtrack"
+SNS_TOPIC_ARN = "arn:aws:sns:us-east-1:050451373350:Medtrack"
 
 dynamodb = boto3.resource('dynamodb', region_name=REGION)
 users_table = dynamodb.Table('UsersTable')

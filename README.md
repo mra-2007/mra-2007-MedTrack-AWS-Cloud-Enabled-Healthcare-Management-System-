@@ -1,2 +1,3 @@
-Developed collaboratively with:
-https://github.com/Sahithrv360
+## Contributors
+- Mohammed Raahil Ali
+- Sahith R V – https://github.com/Sahithrv360
